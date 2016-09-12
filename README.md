@@ -28,3 +28,6 @@ While syncing your passwords through the cloud is certainly convenient, I also h
 * [Tesseract OCR] (https://github.com/tesseract-ocr/tesseract)
 * [Leptonica] (http://www.leptonica.com/) (and libgif, libjpeg, libpng, libtiff, libwebp, zlib)
 * [Boost] (http://www.boost.org/)
+
+## Building
+Building currently requires Visual Studio 2015, and running requires .NET Framework version 4.5.2 or later.  All other dependencies, including libraries for the above open source projects, are included pre-built with this project (in the "lib" and "include" directories).  Download source and open "PasswordManager.sln", then run the appropriate build, currently four build configurations are defined, with variants for Debug/Release and x64/x86.  After build, binaries and all necessary libraries should be in out/{configdir} where "configdir" is one of x64, x64d, x86, x86d.  You can run the Cipher Kick Password Utility by running "WindowsApp.exe".
