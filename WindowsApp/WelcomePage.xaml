@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="PasswordManager.WelcomePage" x:Name="welcomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PasswordManager"
+             mc:Ignorable="d" Loaded="welcomePage_Loaded">
+
+    <UserControl.Resources>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="4" BorderThickness="0 1 0 0" BorderBrush="Black" SnapsToDevicePixels="True" Background="WhiteSmoke"/>
+
+        <StackPanel Grid.Row="0" Margin="10,10,10,40">
+            <TextBlock Text="password manager" FontSize="40" FontWeight="Bold"
+             HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <!--<StackPanel Grid.Row="1" x:Name="mainContainer"/>-->
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <PasswordBox x:Name="passwordBox" FontSize="30" FontWeight="Bold"
+                     VerticalAlignment="Center" Width="500px" 
+                     KeyDown="passwordBox_KeyDown"/>
+                <Button x:Name="goButton" Content=" go " Margin="5,0,0,0"
+                 FontSize="16" FontWeight="Bold" Click="goButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center"
+         Margin="0,30,0,0" Visibility="Visible" x:Name="detailsPanel">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="vaultsComboBox" Width="Auto" ItemsSource="{Binding Source={x:Static local:SharedState.vaults}}" Margin="0,10,0,0" SelectionChanged="vaultsComboBox_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource SmallTextBlockStyle}" FontWeight="Bold" Text="{Binding Path=friendlyName}" VerticalAlignment="Center"/>
+                                <TextBlock Style="{StaticResource VerySmallTextBlockStyle}" Text="{Binding Path=location, StringFormat=({0})}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top"
+             Margin="0,10,0,0" HorizontalAlignment="Left">
+                <Button x:Name="newButton" Content="new..." Margin="0,0,0,0"
+                 Style="{StaticResource SmallButtonStyle}" Click="newButton_Click"/>
+                <Button x:Name="openButton" Content="open..." Margin="5,0,0,0"
+                 Style="{StaticResource SmallButtonStyle}" Click="openButton_Click"/>
+            </StackPanel>
+            <StackPanel x:Name="createVaultPanel" Orientation="Vertical" Visibility="Hidden" Margin="0,10,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource SmallTextBlockStyle}" FontWeight="Bold" Text="vault name:" Margin="3,0,0,0"/>
+                    <TextBox x:Name="vaultNameBox" Grid.Row="0" Grid.Column="1" Style="{StaticResource SmallTextBoxStyle}" Margin="5,0,0,0" Width="300" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource SmallTextBlockStyle}" FontWeight="Bold" Text="password:" Margin="3,10,0,0"/>
+                    <TextBox x:Name="newpw1Box" Grid.Row="1" Grid.Column="1" Style="{StaticResource SmallTextBoxStyle}" Margin="5,10,0,0" Width="300" HorizontalAlignment="Left"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource SmallTextBlockStyle}" FontWeight="Bold" Text="password (again):" Margin="3,10,0,0"/>
+                    <TextBox x:Name="newpw2Box" Grid.Row="2" Grid.Column="1" Style="{StaticResource SmallTextBoxStyle}" Margin="5,10,0,0" Width="300" HorizontalAlignment="Left"/>
+                    <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" Margin="3,10,0,0">
+                        <TextBlock Style="{StaticResource SmallTextBlockStyle}" FontWeight="Bold" Text="file (optional):"/>
+                        <Button x:Name="locButton" Style="{StaticResource VerySmallButtonStyle}" Content="..." Margin="5,0,0,0" Click="locButton_Click"/>
+                    </StackPanel>
+                    <TextBox x:Name="vaultLocBox" Grid.Row="3" Grid.Column="1" Style="{StaticResource SmallTextBoxStyle}" Margin="5,10,0,0" Width="300" HorizontalAlignment="Left"/>
+                </Grid>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Button x:Name="createButton" Style="{StaticResource SmallButtonStyle}" Content="create" Click="createButton_Click"/>
+                    <Button x:Name="cancelButton" Style="{StaticResource SmallButtonStyle}" Content="cancel" Margin="5,0,0,0" Click="cancelButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock Grid.Row="4" Text="{Binding Path=displayMessage}"
+         FontSize="20" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,5"
+         VerticalAlignment="Center" x:Name="pageDisplayMessage"/>
+
+    </Grid>
+
+</UserControl>

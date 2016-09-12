@@ -1,0 +1,3 @@
+Cipher Kick password manager, info file.
+
+WAppCPP\PropertySheet.props contains some properties that are the same across configurations.

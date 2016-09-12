@@ -1,0 +1,26 @@
+﻿<local:StandardUserControl x:Class="PasswordManager.ListPage" x:Name="listPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PasswordManager"
+             mc:Ignorable="d" Loaded="listPage_Loaded" FocusVisualStyle="{x:Null}">
+
+        <Grid Margin="13,15,13,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" x:Name="noSitesText" Style="{StaticResource MediumTextBlockStyle}" FontWeight="Bold" Text="No sites yet. Click &quot;add site&quot; to add a new site."/>
+            <ListView x:Name="siteListView" Grid.Row="0"
+                ItemsSource="{Binding Source={x:Static local:SharedState.sites}}"
+                VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                MouseDoubleClick="siteListView_MouseDoubleClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name}" FontSize="30" FontWeight="Bold"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        
+</local:StandardUserControl>

@@ -1,0 +1,15 @@
+﻿<local:StandardUserControl x:Class="PasswordManager.BluetoothUpdatePage" x:Name="bluetoothUpdatePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PasswordManager"
+             mc:Ignorable="d">
+
+    <StackPanel Margin="10,15,10,0" Orientation="Vertical">
+        <Button x:Name="updateViaBluetoothButton" Content="update via bluetooth" 
+         FontSize="25" FontWeight="Bold" Click="updateViaBluetoothButton_Click"/>
+        <TextBlock x:Name="bluetoothStatusBlock"  FontSize="25" FontWeight="Bold" Text=""/>
+    </StackPanel>
+
+</local:StandardUserControl>

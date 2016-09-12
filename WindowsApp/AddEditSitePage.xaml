@@ -1,0 +1,94 @@
+﻿<local:StandardUserControl x:Class="PasswordManager.AddEditSitePage" x:Name="addEditSitePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PasswordManager"
+             mc:Ignorable="d" Loaded="addEditSitePage_Loaded">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Margin="5,5,0,0" FontSize="25" FontWeight="Bold" Text="name: "/>
+        <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5,5,5,0" x:Name="nameBox" FontSize="25" FontWeight="Bold" Width="400"/>
+        <TextBlock Grid.Row="1" Grid.Column="0"  Margin="5,5,0,0" FontSize="25" FontWeight="Bold" Text="url: "/>
+        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  Margin="5,5,5,0"  x:Name="urlBox" FontSize="25" FontWeight="Bold" Width="400"/>
+        <TextBlock Grid.Row="2" Grid.Column="0"  Margin="5,5,0,0" FontSize="25" FontWeight="Bold" Text="user: "/>
+        <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"  Margin="5,5,5,0"  x:Name="userBox" FontSize="25" FontWeight="Bold" Width="400"/>
+        <TextBlock Grid.Row="3" Grid.Column="0"  Margin="5,5,0,0" FontSize="25" FontWeight="Bold" Text="password: "/>
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left">
+            <TextBox Margin="5,5,0,0"  x:Name="passwordBox" FontSize="25" FontWeight="Bold" Width="400"/>
+            <Button Margin="5,5,5,0" x:Name="copypwButton" Content=" copy " FontSize="25" FontWeight="Bold" Click="copypwButton_Click"/>
+        </StackPanel>
+        <TextBlock Grid.Row="4" Grid.Column="0"  Margin="5,5,0,0" FontSize="25" FontWeight="Bold" Text="repeat password: "/>
+        <TextBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"  Margin="5,5,5,0"  x:Name="repeatPasswordBox" FontSize="25" FontWeight="Bold" Width="400"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" Margin="5,5,0,0" FontSize="25" FontWeight="Bold" Text="notes: "/>
+        <TextBox Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch"  Margin="5,5,5,0"  x:Name="notesBox" FontSize="25" FontWeight="Bold" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
+        <StackPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button Margin="5,5,5,5" x:Name="saveButton" Content=" save " FontSize="25" FontWeight="Bold" Click="saveButton_Click"/>
+            <Button Margin="0,5,5,5" x:Name="cancelButton" Content=" cancel " FontSize="25" FontWeight="Bold" Click="cancelButton_Click"/>
+            <Button x:Name="generatePwButton" Margin="0,5,5,5" Content=" generate password " FontSize="25" FontWeight="Bold" Click="generatePwButton_Click"/>
+            <CheckBox x:Name="useNum" Margin="10,0,0,0" Content="(0-9)" VerticalAlignment="Center" Click="updateGenPwButtonEnabled"/>
+            <CheckBox x:Name="useAlphaLower" Margin="10,0,0,0" Content="(a-z)" VerticalAlignment="Center" Click="updateGenPwButtonEnabled"/>
+            <CheckBox x:Name="useAlphaUpper" Margin="10,0,0,0" Content="(A-Z)" VerticalAlignment="Center" Click="updateGenPwButtonEnabled"/>
+            <CheckBox x:Name="useSymbols" Margin="10,0,0,0" Content="($#*)" VerticalAlignment="Center" Click="updateGenPwButtonEnabled"/>
+            <CheckBox x:Name="useAmbi" Margin="10,0,0,0" Content="ambig" VerticalAlignment="Center"/>
+            <ComboBox x:Name="pwLength" ItemsSource="{x:Static local:SharedState.pwGenDefaultPwLengthChoices}" Margin="10,0,0,0" Text="Size" VerticalAlignment="Center"/>
+            <!--
+            <CheckBox x:Name="useNum" IsChecked="True" Margin="10,0,0,0" Content="(0-9)" VerticalAlignment="Center" Click="updateGenPwButtonEnabled"/>
+            <CheckBox x:Name="useAlphaLower" IsChecked="True" Margin="10,0,0,0" Content="(a-z)" VerticalAlignment="Center" Click="updateGenPwButtonEnabled"/>
+            <CheckBox x:Name="useAlphaUpper" IsChecked="True" Margin="10,0,0,0" Content="(A-Z)" VerticalAlignment="Center" Click="updateGenPwButtonEnabled"/>
+            <CheckBox x:Name="useSymbols" IsChecked="True" Margin="10,0,0,0" Content="($#*)" VerticalAlignment="Center" Click="updateGenPwButtonEnabled"/>
+            <CheckBox x:Name="useAmbi" IsChecked="False" Margin="10,0,0,0" Content="ambig" VerticalAlignment="Center"/>
+            <ComboBox x:Name="pwLength" Margin="10,0,0,0" Text="Size" VerticalAlignment="Center">
+                <ComboBox.Items>
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>6</ComboBoxItem>
+                    <ComboBoxItem>7</ComboBoxItem>
+                    <ComboBoxItem>8</ComboBoxItem>
+                    <ComboBoxItem>9</ComboBoxItem>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>11</ComboBoxItem>
+                    <ComboBoxItem>12</ComboBoxItem>
+                    <ComboBoxItem>13</ComboBoxItem>
+                    <ComboBoxItem>14</ComboBoxItem>
+                    <ComboBoxItem>15</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">16</ComboBoxItem>
+                    <ComboBoxItem>17</ComboBoxItem>
+                    <ComboBoxItem>18</ComboBoxItem>
+                    <ComboBoxItem>19</ComboBoxItem>
+                    <ComboBoxItem>20</ComboBoxItem>
+                    <ComboBoxItem>21</ComboBoxItem>
+                    <ComboBoxItem>22</ComboBoxItem>
+                    <ComboBoxItem>23</ComboBoxItem>
+                    <ComboBoxItem>24</ComboBoxItem>
+                    <ComboBoxItem>25</ComboBoxItem>
+                    <ComboBoxItem>26</ComboBoxItem>
+                    <ComboBoxItem>27</ComboBoxItem>
+                    <ComboBoxItem>28</ComboBoxItem>
+                    <ComboBoxItem>29</ComboBoxItem>
+                    <ComboBoxItem>30</ComboBoxItem>
+                </ComboBox.Items>
+            </ComboBox>
+            -->
+        </StackPanel>
+    </Grid>
+
+</local:StandardUserControl>

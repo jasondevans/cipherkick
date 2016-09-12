@@ -1,0 +1,56 @@
+﻿<local:StandardUserControl x:Class="PasswordManager.DetailPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PasswordManager"
+             mc:Ignorable="d" PreviewKeyDown="detailPage_PreviewKeyDown" Focusable="True"
+             Loaded="detailPage_Loaded" FocusVisualStyle="{x:Null}">
+
+    <Grid x:Name="fieldsPanel" Margin="0,0,0,0">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" x:Name="urlPanel" Orientation="Horizontal">
+            <Button Style="{StaticResource MediumButtonStyle}" x:Name="copyUrlButton" Margin="10,9,0,7" Click="copyUrlButton_Click" Content="copy"/>
+            <TextBlock Text="{Binding Path=Url}" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <Button Style="{StaticResource MediumButtonStyle}" x:Name="launchUrlButton" Margin="10,9,0,7" Click="launchUrlButton_Click" Content="launch"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" x:Name="userPanel" Orientation="Horizontal">
+            <Button Style="{StaticResource MediumButtonStyle}" x:Name="copyUserButton" Margin="10,9,0,7" Click="copyUserButton_Click" Content="copy"/>
+            <TextBlock Text="{Binding Path=User}" FontSize="25" FontWeight="Bold" VerticalAlignment="Center"
+                Margin="10,0,10,0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" x:Name="passwordPanel" Orientation="Horizontal">
+            <Button Style="{StaticResource MediumButtonStyle}" x:Name="copyPasswordButton" Margin="10,9,0,7" Click="copyPasswordButton_Click" Content="copy"/>
+            <TextBlock x:Name="passwordField" Text="**********" FontSize="25" FontWeight="Bold" VerticalAlignment="Center"
+                Margin="10,0,10,0"/>
+        </StackPanel>
+        <Grid Grid.Row="3" x:Name="notesPanel">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource MediumButtonStyle}" x:Name="copyNotesButton" Margin="10,9,0,7" Click="copyNotesButton_Click" VerticalAlignment="Top" Content="copy"/>
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,6,10,0">
+                <TextBlock Text="{Binding Path=Notes}" FontSize="25" FontWeight="Bold"/>
+            </ScrollViewer>
+        </Grid>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="10,15,0,10">
+            <Button x:Name="editButton" Style="{StaticResource MediumButtonStyle}" Content="edit" Margin="0,0,0,0" Click="editButton_Click"/>
+            <Button x:Name="showpwButton" Style="{StaticResource MediumButtonStyle}" Content=" show password " Margin="7,0,0,0" Click="showpwButton_Click"/>
+            <Button x:Name="deleteButton" Style="{StaticResource MediumButtonStyle}" Content=" delete " Margin="7,0,0,0" Click="deleteButton_Click"/>
+            <Button x:Name="reallyDeleteButton" Style="{StaticResource MediumButtonStyle}" Content=" really delete " Margin="7,0,0,0" Click="reallyDeleteButton_Click" Visibility="Hidden"/>
+            <Button x:Name="dontDeleteButton" Style="{StaticResource MediumButtonStyle}" Content=" don't delete " Margin="7,0,0,0" Click="dontDeleteButton_Click" Visibility="Hidden"/>
+        </StackPanel>
+        
+    </Grid>
+
+</local:StandardUserControl>

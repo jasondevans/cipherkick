@@ -1,0 +1,28 @@
+
+*.sln text
+*.txt text
+*.h text
+*.hpp text
+*.c text
+*.cpp text
+*.html text
+*.cs text
+*.xaml text
+*.config text
+*.csproj text
+*.vcxproj text
+*.resx text
+*.settings text
+*.props text
+*.filters text
+*.java text
+*.gitignore text
+*.gitattributes text
+
+
+*.ico binary
+*.dll binary
+*.a binary
+*.lib binary
+*.so binary
+*.jar binary

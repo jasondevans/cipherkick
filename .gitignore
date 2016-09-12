@@ -1,0 +1,11 @@
+.vs/
+out/
+PasswordManager.VC.db
+PasswordManager.VC.VC.opendb
+WindowsApp/obj/
+WindowsApp/WindowsApp.csproj.user
+WAppCpp/WAppCpp.vcxproj.user
+WAppCpp/x64/
+WAppCpp/Release/
+WAppCpp/Debug/
+*.swp
