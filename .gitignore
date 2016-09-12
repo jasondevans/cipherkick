@@ -1,7 +1,7 @@
 .vs/
 out/
-PasswordManager.VC.db
-PasswordManager.VC.VC.opendb
+*.VC.db
+*.VC.opendb
 WindowsApp/obj/
 WindowsApp/WindowsApp.csproj.user
 WAppCpp/WAppCpp.vcxproj.user
