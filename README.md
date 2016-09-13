@@ -6,7 +6,7 @@ I found many password managers attempt to "do it all" -- automatically figuring 
 
 Many existing password managers have user interfaces that I found awkward to use and/or unpleasant to look at.  Cipher Kick is designed to have a simple, clean look, making it easy to do the things you're trying to do.
 
-While syncing your passwords through the cloud is certainly convenient, I also have concerns about doing so, and about trusting a third party.  While there pros and cons to cloud syncing, currently Cipher Kick is conservative and supports only local syncing via Bluetooth.
+While syncing your passwords through the cloud is certainly convenient, I also have concerns about doing so, and about trusting a third party.  While there are pros and cons to cloud syncing, currently Cipher Kick is conservative and supports only local syncing via Bluetooth.
 
 ## Features
 * Save usernames, passwords, and URL's, along with another other information in a general notes field
