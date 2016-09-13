@@ -1,10 +1,11 @@
-.vs/
-out/
+**/.vs/
+**/out/
+**/obj/
+**/bin/
 *.VC.db
 *.VC.opendb
-WindowsApp/obj/
-WindowsApp/WindowsApp.csproj.user
-WAppCpp/WAppCpp.vcxproj.user
+*.csproj.user
+*.vcxproj.user
 WAppCpp/x64/
 WAppCpp/Release/
 WAppCpp/Debug/
