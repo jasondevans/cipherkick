@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Transition to the list activity
-                // new Thread(() -> startActivity(new Intent(getApplicationContext(), ListActivity.class))).start();
                 startActivity(new Intent(getApplicationContext(), ListActivity.class));
             }
         });
